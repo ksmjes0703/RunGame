@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private int score = 0;
 
-    private void Awake()
+     void Awake()
     {
         if (instance == null)
         {
@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Update()
+    {
+       if (isGameover && Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     public void AddScore(int newScore)
     {
         if (!isGameover)
